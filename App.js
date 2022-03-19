@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CarsList from './components/CarsList';
 import CustomOrder from './components/CustomOrder'
 import ExistingInventory from './components/ExistingInventory';
+import Payment from './components/Payment';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ function App() {
         />
         <Stack.Screen name="Customize" component={CustomOrder} />
         <Stack.Screen name="Inventory" component={ExistingInventory} />
+        <Stack.Screen name="Payment" component={Payment} />
       </Stack.Navigator>
     </NavigationContainer>
   );
