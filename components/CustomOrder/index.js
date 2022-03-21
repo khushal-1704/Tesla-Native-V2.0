@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Button, Image, Pressable } from 'react-native'
 import StyleButton from '../StyleButton'
@@ -5,10 +6,13 @@ import styles from './styles'
 
 
 
-const CustomOrder = ({ navigation }) => {
+
+const CustomOrder = ({ }) => {
     const [total, setTotal] = useState('$69,420')
+    const navigation = useNavigation()
     console.log(navigation)
     const handlePress = () => {
+        navigation.navigate('Payment')
         console.warn('booking confirmed. Congo')
     }
     const date = new Date()
@@ -29,17 +33,19 @@ const CustomOrder = ({ navigation }) => {
                         source={require('../../assets/images/tyre.png')}
                         style={styles.tyreImg}
                     />
-                    <StyleButton
-                        type={'tertiary'}
-                        content={'Upgrade for $99'}
-                        onPress={handlePress} />
+                    <View style={styles.btn}>
+                        <StyleButton
+                            type={'tertiary'}
+                            content={'Upgrade for $99'}
+                            onPress={handlePress} />
+                    </View>
                 </View>
             </View>
             <View style={styles.bookingContainer}>
                 <Text style={styles.bookingText}>Confirm your Booking here!</Text>
                 <StyleButton
                     type={'tertiary'}
-                    content={'Confirm booking'}
+                    content={'Proceed to Booking'}
                     onPress={handlePress}
                 />
             </View>
