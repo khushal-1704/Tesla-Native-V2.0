@@ -1,14 +1,34 @@
-import React from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, ImageBackground, BackHandler, Alert } from 'react-native';
 import styles from './styles';
 import StyleButton from '../StyleButton';
 import { useNavigation } from '@react-navigation/native';
 
-import CustomOrder from '../CustomOrder';
 
 const CarItem = (props) => {
     const { name, tagline, taglineCTA, image, key } = props.car;
     const navigation = useNavigation()
+    useEffect(() => {
+        const backAction = () => {
+            Alert.alert("Hold on!", "Are you sure you want to go back?", [
+                {
+                    text: "Cancel",
+                    onPress: () => null,
+                    style: "cancel"
+                },
+                { text: "YES", onPress: () => BackHandler.exitApp() }
+            ]);
+            return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+        );
+
+        return () => backHandler.remove();
+    }, []);
+
     const handleOnPress = () => {
         navigation.navigate('Customize', { id: key })
         console.warn('Clicked')

@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
         height: '90%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
 
     },
     imageContainer: {
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode: 'cover',
         position: 'absolute',
+        alignSelf: 'center'
     },
     detailsContainer: {
         display: 'flex',
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     tyreButtonContainer: {
-        width: '50%',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -57,9 +59,12 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
     },
+    btn: {
+        width: '70%',
+    },
     bookingContainer: {
-        display: 'flex',
         alignItems: 'center',
+        width: '80%',
     },
     bookingText: {
         fontWeight: 'bold',
